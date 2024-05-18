@@ -2,7 +2,6 @@ import { IconButton } from "@mui/material";
 import * as React from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 
 export function Bharuch() {
     const navigate = useNavigate();
@@ -12,11 +11,13 @@ export function Bharuch() {
     }
     return (
         <>
-            <IconButton onClick={() => navigate(-1)}>
-                {" "}
+            <BackIcon onClick={() => navigate(-1)}>
                 {/* Navigate back */}
-                <ArrowBackIosNewIcon />
-            </IconButton>
+                <img
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/1fd569ca716b29d7f1a98071e37fd2287542114cc8243ecad11b40ab9ef936c8?apiKey=65b9bef5a9974c109a4afdb193963080&"
+                    alt="Back button"
+                />
+            </BackIcon>
             <MainContainer>
                 <TemplePageContainer>
                     <Header>
@@ -24,7 +25,7 @@ export function Bharuch() {
                     </Header>
                     <TempleImageWrapper>
                         <TempleImage
-                            src="https://cdn.builder.io/api/v1/image/assets/TEMP/351507c98c19beda031a9ab798515020e4dfe2b615ea1d64e6a0c47ee617db8e?apiKey=3250d16d0ad044539de68d3e33600ce8&"
+                            src="https://www.baps.org//Data/Sites/1/Media/LocationImages/130BAPS_Bharuch.jpg"
                             alt="BAPS Shree Swaminarayan Mandir, Bharuch"
                         />
                     </TempleImageWrapper>
@@ -142,7 +143,14 @@ const TemplePageContainer = styled.main`
   width: 100%;
   margin: 0 auto;
 `;
-
+const BackIcon = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.5rem;
+  margin-left: 1.5rem;
+`;
 const TempleTitle = styled.h1`
   color: var(--BG-Pink, #270025);
   font: 700 19px Overlock, sans-serif;
@@ -161,6 +169,7 @@ const TempleImage = styled.img`
   aspect-ratio: 1.47;
   object-fit: cover;
   object-position: center;
+  border-radius: 10px;
 `;
 
 export default Bharuch;

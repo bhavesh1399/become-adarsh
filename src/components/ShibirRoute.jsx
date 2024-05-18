@@ -4,24 +4,71 @@ import styled from "styled-components";
 import InfoIcon from "@mui/icons-material/InfoTwoTone";
 import { useNavigate } from "react-router-dom";
 const timeSlots = [
-  { time: "11.30 PM", location: "Bharuch" },
-  { time: "02.30 AM", location: "Tithal" },
-  { time: "06.30 PM", location: "Navsari" },
-  { time: "11.30 AM", location: "Imagica" },
-  { time: "01.00 PM", location: "Trambak" },
-  { time: "01.00 PM", location: "Trambak" },
-  { time: "01.00 PM", location: "Trambak" },
-  { time: "01.00 PM", location: "Trambak" },
-  { time: "01.00 PM", location: "Trambak" },
+  { time: "Schedule", location: "Bharuch" },
+  { time: "Schedule", location: "Dhule" },
+  { time: "Schedule", location: "Ellora" },
+  { time: "09:00 PM", location: "Nashik" },
+  { time: "09:00 AM", location: "Pune" },
+  { time: "11:30 AM", location: "Imagicaa" },
+  { time: "02:30 AM", location: "Tithal" },
+  { time: "11:30 PM", location: "Bharuch" },
 ];
 
-export function ShibirRoutes() {
+
+export function ShibirRoute() {
   const navigate = useNavigate(); // Hook to handle navigation
 
   // Handler to navigate to the details page
   const handleIcon = () => {
     navigate("/shibir-route"); // Navigate to the ImageDetails component page
   };
+
+  const handleClick = (location) => {
+    switch (location) {
+      case 'Bharuch':
+        navigate("/Bharuch-details");
+        break;
+
+      case 'Navsari':
+        navigate("/Navsari-details");
+        break;
+
+      case 'Pune':
+        navigate("/Pune-details");
+        break;
+
+      case 'Tithal':
+        navigate("/Tithal-details");
+        break;
+
+      case 'Imagicaa':
+        navigate("/Imagicaa-details");
+        break;
+
+      case 'Nashik':
+        navigate("/Nashik-details");
+        break;
+
+
+      default:
+        break;
+    }
+    // Navigate to the ImageDetails component page
+  };
+
+
+  const TimeSlot = ({ time, location }) => (
+    <TimeSlotWrapper>
+      <TimeDisplay>Schedule</TimeDisplay>
+      <LocationDisplay onClick={() => handleClick(location)}>
+        <LocationName>{location}</LocationName>
+        <LocationMarker>
+          <InfoIcon className="icon" /> {/* MUI Icon is used here */}
+        </LocationMarker>
+      </LocationDisplay>
+    </TimeSlotWrapper>
+  );
+
   return (
     <>
       <RouteContainer style={{ margin: "5px 10px" }}>
@@ -48,17 +95,9 @@ export function ShibirRoutes() {
   );
 }
 
-const TimeSlot = ({ time, location }) => (
-  <TimeSlotWrapper>
-    <TimeDisplay>{time}</TimeDisplay>
-    <LocationDisplay>
-      <LocationName>{location}</LocationName>
-      <LocationMarker>
-        <InfoIcon className="icon" /> {/* MUI Icon is used here */}
-      </LocationMarker>
-    </LocationDisplay>
-  </TimeSlotWrapper>
-);
+
+
+
 
 const TimeSlotContainer = styled.div`
   display: flex;
@@ -101,7 +140,8 @@ const TimeDisplay = styled.div`
   border-radius: 24px 24px 0 0;
   background-color: var(--New-Light-Dark, #c394ff);
   color: rgba(39, 0, 37, 0.5);
-  font: 300 12px/67% Rubik, sans-serif;
+  font: 500 12px/67% Rubik, sans-serif;
+  font-weight: bold;a
   justify-content: center;
 `;
 
@@ -178,4 +218,4 @@ const RouteLink = styled.a`
   cursor: pointer;
 `;
 
-export default ShibirRoutes;
+export default ShibirRoute;

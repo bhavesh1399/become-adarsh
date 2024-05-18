@@ -5,10 +5,10 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "./Pages/Login";
 import Home from "./Pages/Home";
 import "./App.css"; // Make sure your stylesheet is correctly imported
-import { SadgunLekhan } from "./Pages/SadgunLekhan";
-import ShibirRoute from "./Pages/ShibirRoute";
+import SadgunLekhan from "./Pages/SadgunLekhan";
+import ShibirRoute from "./Pages/ShibirRoutes";
 import UserProfile from "./Pages/UserProfile";
-import ImageDetails from "./components/ImageDetails";
+// import ImageDetails from "./components/ImageDetails";
 import { AuthProvider } from "./contexts/AuthProvider";
 import { PrivateRoute } from "./contexts/PrivateRoute";
 import Navsari from "./Pages/routeDetails/Navsari";
@@ -17,6 +17,8 @@ import Nashik from "./Pages/routeDetails/Nashik";
 import Pune from "./Pages/routeDetails/Pune";
 import Tithal from "./Pages/routeDetails/Tithal";
 import Imagicaa from "./Pages/routeDetails/Imagicaa";
+import Notifications from "./Pages/Notifications";
+import AddSadgun from "./Pages/AddSadgun";
 import Score from "./Pages/Score";
 
 function App() {
@@ -46,6 +48,14 @@ function App() {
             element={
               <PrivateRoute>
                 <ShibirRoute />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/notifications"
+            element={
+              <PrivateRoute>
+                <Notifications />
               </PrivateRoute>
             }
           />
@@ -113,6 +123,15 @@ function App() {
             element={
               <PrivateRoute>
                 <Imagicaa />
+              </PrivateRoute>
+            }
+          />
+
+          <Route
+            path="/add-sadgun"
+            element={
+              <PrivateRoute>
+                <AddSadgun />
               </PrivateRoute>
             }
           />

@@ -8,7 +8,7 @@ function Score() {
   return (
     <>
       <TopBar>
-        <IconButton onClick={() => navigate(-1)}>
+        <IconButton onClick={() => navigate("/home")}>
           {" "}
           {/* Navigate back */}
           <ArrowBackIosNewIcon />

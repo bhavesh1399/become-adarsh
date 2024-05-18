@@ -25,6 +25,9 @@ function QuizStarter() {
   const handleIcon = () => {
     navigate("/score"); // Navigate to the ImageDetails component page
   };
+  const handleQuize = () => {
+    navigate("/play-activity"); // Navigate to the ImageDetails component page
+  };
   return (
     <>
       <MemoriesHeader>
@@ -47,7 +50,9 @@ function QuizStarter() {
             </CardContent>
             <PlayButton>
               <PlayButtonContent>
-                <PlayButtonText>Let's Play</PlayButtonText>
+                <PlayButtonText onClick={handleQuize}>
+                  Let's Play
+                </PlayButtonText>
                 <PlayButtonIcon
                   src="https://cdn.builder.io/api/v1/image/assets/TEMP/1e111c01156d69c0b43141f98cd94c78af9b7751707d40876e3fe8976ba8226e?apiKey=3250d16d0ad044539de68d3e33600ce8&"
                   alt="Play icon"
